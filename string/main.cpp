@@ -57,7 +57,7 @@ int main()
 #if 0
 	//为修改 string 字符串的内容，下标操作符 [] 和函数 at() 均返回字符的“引用”。
 	//但当字符串的内存被重新分配以后，可能会发生执行错误
-	    const std::string cS ("c.biancheng.net");
+    const std::string cS("c.biancheng.net");
     std::string s ("abode");
     char temp =0;
     char temp_1 = 0;
@@ -75,7 +75,7 @@ int main()
 #endif // 0
 
 	//compare()函数,比较字符串
-#if 0
+#if 1
 	string A("aBcdef");
 	string B("AbcdEf");
 	string C("123456");
@@ -198,6 +198,8 @@ int main()
     cout << "6: " << var << endl;
 #endif // 1
 
+#if 0
+
     char ch[100] = { 0x11,0x22,0x00,0x33,'\0' };
     string str("12345678");
     str.assign(ch,6);
@@ -214,6 +216,9 @@ int main()
         printf("str[%d] = %0X\n", i, str[i]);
     }
     str.copy(ch, 1, 2);
+
+#endif // 0
+
 	system("pause");
 	return 0;
 }
