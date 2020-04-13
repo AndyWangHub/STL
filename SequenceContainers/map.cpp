@@ -3,6 +3,7 @@
 #include<map>
 #include<utility>
 #include <iomanip>
+#include <cctype>                                
 #include"name.h"
 
 using namespace std;
@@ -12,7 +13,7 @@ using Entry = std::pair<const Name, size_t>;
 template<typename T1,typename T2>
 void display(std::map<T1, T2> m)
 {
-	for (auto v : m)
+	for (auto &v : m)
 	{
 		std::cout << std::left << std::setw(30) << v.first
 			<< std::right << std::setw(4) << v.second << std::endl;
@@ -26,9 +27,10 @@ Entry get_entry()
 	std::cout << "Enter first and second names followed by the age: ";
 	Name name{};
 	size_t age{};
-	std::cout << name;
+	std::cin >> name >> age;
 	return make_pair(name, age);
 }
+
 
 int main()
 {
@@ -52,9 +54,30 @@ int main()
 #endif // 0
 
 
+	map<Name, size_t> people{ {{"Ann", "Dante"}, 25}, {{"Bill", "Hook"}, 46}, 
+		{{"Jim", "Jams"}, 32}, {{"Mark", "Time"}, 32} };
+	std::cout << "\nThe initial contents of the map is:\n";
+	display<Name, size_t>(people);
 
-
-
+	char answer{ 'Y' };
+	std::cout << "\nEnter a Name and age entry.\n";
+	while (std::toupper(answer) == 'Y')
+	{
+		Entry entry{ get_entry() };
+		auto pr = people.insert(entry);
+		if (!pr.second)
+		{ // It's there already - check whether we should update
+			std::cout << "Key \"" << pr.first->first << "\" already present. Do you want to update the age (Y or N)? ";
+			std::cin >> answer;
+			if (std::toupper(answer) == 'Y')
+				pr.first->second = entry.second;
+		}
+		// Check whether there are more to be entered
+		std::cout << "Do you want to enter another entry(Y or N)? ";
+		std::cin >> answer;
+	}
+	std::cout << "\nThe map now contains the following entries:\n";
+	display(people);
 
 	cout << endl;
 	system("pause");
