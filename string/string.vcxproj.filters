@@ -23,5 +23,26 @@
     <ClInclude Include="display.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="one.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="two.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="three.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="four.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="five.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="six.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="seven.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
